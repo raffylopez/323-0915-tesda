@@ -16,6 +16,10 @@
         <servlet-name>GreetingServlet</servlet-name>
         <servlet-class>com.acme.foo.GreetingServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GreetingServletWithSessions</servlet-name>
+        <servlet-class>exercise.GreetingServletWithSessions</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BrowserDetectionServlet</servlet-name>
         <url-pattern>/BrowserDetectionServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>GreetingServlet</servlet-name>
         <url-pattern>/GreetingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GreetingServletWithSessions</servlet-name>
+        <url-pattern>/GreetingServletWithSessions</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
