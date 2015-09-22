@@ -7,6 +7,7 @@ package com.acme.foo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,19 +33,23 @@ public class GreetingServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet GreetingServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet GreetingServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {            
+            Cookie hasVisited = findCookie(request.getCookies(), "hasVisited");
+            
+            //...
+        } finally {
             out.close();
         }
+    }
+
+    Cookie findCookie(Cookie[] cookies, String nameOfTargetCookie) {
+        if (cookies != null) {
+            for (Cookie currentCookie : cookies) {
+                if (currentCookie.getName().equals(nameOfTargetCookie)) {
+                    return currentCookie;
+                }
+            }
+        }
+        return null;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
