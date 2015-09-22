@@ -1,6 +1,6 @@
 323-TESDA 09/15
 ===============
 
-++INSTRUCTIONS:
+## INSTRUCTIONS:
 - Open project folders directly in Netbeans
 
