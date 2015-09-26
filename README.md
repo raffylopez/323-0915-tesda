@@ -2,7 +2,7 @@
 ===============
 
 ## INSTRUCTIONS:
-- Click "Download Zip File"
+- Click "Download Zip"
 - Decompress into filesystem after downloading
 - Open project folders directly in Netbeans
 
