@@ -7,6 +7,7 @@ package com.acme;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ActiveLearning
  */
-public class StoreAttributeServlet extends HttpServlet {
+@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -32,10 +34,6 @@ public class StoreAttributeServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String secretMessage="secret!";
-            request.setAttribute("secret_message", secretMessage);
-            
-            request.getRequestDispatcher("DisplayAttribute.jsp").forward(request, response);
             
         } finally {            
             out.close();
