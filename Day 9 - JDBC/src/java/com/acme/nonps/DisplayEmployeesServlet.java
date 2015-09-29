@@ -2,15 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.acme;
+package com.acme.nonps;
 
+import com.acme.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -39,7 +36,7 @@ public class DisplayEmployeesServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         Connection conn = null;
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             final String USERNAME = "root";
@@ -48,8 +45,8 @@ public class DisplayEmployeesServlet extends HttpServlet {
             String sql = "SELECT id,name,age,salary FROM Employees WHERE id=100";
              conn = 
                     DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
-            stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
             
             out.println("<table border=1>");
             while(rs.next()){
