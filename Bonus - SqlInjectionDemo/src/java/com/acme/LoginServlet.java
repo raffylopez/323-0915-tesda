@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
             final String PASSWORD = "secret";
             final String CONNECTION_URL = "jdbc:mysql://localhost:3306/acme";
             String sql = "SELECT username FROM "
-                    + "Users WHERE username=?";
+                       + "Users WHERE username=?";
             
             conn = 
                     DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
